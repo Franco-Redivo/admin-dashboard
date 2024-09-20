@@ -6,11 +6,11 @@
 }
 
 :root{
-    --primary-blue:#06b6d4;
+    --primary-blue:#0682d4;
     --primary-color: #f0f9ff;
-    --secondary-color: #333;
+    --secondary-color: #dee5ec;
     --tertiary-color: #f4f4f4;
-    --quaternary-color: #333;
+    --card-border: rgb(255, 187, 0);
     --quinary-color: #333;
 }
 
@@ -24,10 +24,11 @@ body{
     grid-template-columns: 1fr 4fr;
     grid-template-rows: 1fr 4fr;
     height: 100vh;
+    row-gap: 30px;
+    background-color: var(--secondary-color);
 }
 
 .sidebar{
-    height: 100%;
     grid-column: 1/2;
     grid-row: 1/3;
     gap: 30px;
@@ -85,14 +86,185 @@ body{
 }
 
 .header{
+    align-items: center;
     grid-column: 2/3;
     grid-row: 1/2;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
+    box-shadow: 4px 0px 8px grey;
+    background-color: var(--primary-color);
+
+    & .search{
+        display: flex;
+        align-items: center;
+        grid-column: 1/3;
+        margin-left: 50px;
+        gap: 15px;
+
+        & input{
+            width: 70%;
+            height: 30px;
+            outline: none;
+            border-radius: 20px;
+            border: none;
+            background-color: var(--secondary-color);
+            padding: 0 15px;
+            
+        }
+
+        & img{
+            width: 30px;
+            height: 30px;
+        }
+    }
+
+    & .notification{
+        display: flex;
+        align-items: center;
+        grid-column: 3/4;
+        gap: 35px;
+        justify-self: end;
+        margin-right: 50px;
+        font-size: 1.5rem;
+        font-weight: 700;
+
+        & :first-child{
+            width: 30px;
+            height: 30px;
+        }
+        
+    }
+
+    & .profile{
+        display: grid;
+        grid-template-columns: 65px 450px ;
+        grid-template-rows: 10px 10px;
+        align-items: center;
+        grid-column: 1/2;
+        row-gap: 15px;
+        column-gap: 20px;
+        margin-left: 50px;
+        font-weight: 700;
+        & img{
+            grid-column: 1/2;
+            grid-row: 1/3;
+            width: 65px;
+            height: 65px;
+        }
+        & h3{
+            font-size: 1.6rem;
+        }
+    }
+
+    & .buttons{
+        align-self: center;
+        grid-column: 3/4;
+        display: flex;
+        align-items: center;
+        margin-right: 50px;
+        gap: 50px;
+        & button{
+            width: 100px;
+            height: 40px;
+            border-radius: 20px;
+            border: none;
+            background-color: var(--primary-blue);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+    }
 }
 
 .main-content{
     grid-column: 2/3;
     grid-row: 2/3;
+    display: grid;
+    grid-template-columns: 3fr 1fr ;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    
+    & :first-child{
+        grid-column: 1/2;
+        grid-row: 1/3;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        & h2{
+            margin-left: 100px ;
+            margin-bottom: 10px;
+        }
+        & .projects{
+            display: grid;
+            grid-template-columns: 450px 450px;
+            grid-template-rows: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-left: 100px;
+
+            & .project{
+                background-color: var(--primary-color);
+                height: 200px;
+                width: 400px;
+                padding: 30px 20px 10px 20px;
+                border-radius: 10px;
+                border-left:  8px solid var(--card-border);
+                box-shadow: 2px 2px 4px grey;
+            }
+
+            & :first-child{
+                grid-column: 1/2;
+                grid-row: 1/2;
+            }
+        }
+    }
+
+    & .announcement-column{
+        grid-column: 2/3;
+        grid-row: 1/2;
+        margin-right: 50px;
+
+        & h2{
+            margin-bottom: 10px;
+        }
+        
+
+        & .announcements{
+            background-color: var(--primary-color);
+            padding: 20px ;
+        }
+    }
+
+    & .trending-column{
+        grid-column: 2/3;
+        grid-row: 2/3;
+        margin-right: 50px;
+        
+
+        & .trendings{
+            margin-top: 10px;
+            background-color: var(--primary-color);
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            & .trending{
+                display: grid;
+                grid-template-columns: 50px 200px;
+                grid-template-rows: 30px 20px;
+                align-items: center;
+                row-gap: 2px;
+                column-gap: 10px;
+
+                & img{
+                    width: 50px;
+                    height: 50px;
+                    grid-column: 1/2;
+                    grid-row: 1/3;
+                }
+            }
+        }
+    }
 }
